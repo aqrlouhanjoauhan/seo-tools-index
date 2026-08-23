@@ -140,6 +140,7 @@
       background: var(--accent);
       color: #000;
       box-shadow: 0 0 24px var(--accent-glow);
+      border: none;
     }
 
     .btn-primary:hover {
@@ -159,8 +160,8 @@
 
     /* Hero */
     .hero {
-      padding-top: 150px;
-      padding-bottom: 50px;
+      padding-top: 140px;
+      padding-bottom: 40px;
       text-align: center;
     }
 
@@ -202,25 +203,16 @@
 
     .hero p {
       max-width: 700px;
-      margin: 0 auto 36px;
+      margin: 0 auto 30px;
       font-size: 1.15rem;
       color: var(--text-muted);
       font-weight: 400;
     }
 
-    .hero-actions {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 24px;
-      flex-wrap: wrap;
-    }
-
     /* Welcome Bonus Banner */
     .bonus-banner {
-      max-width: 860px;
-      margin: 0 auto 60px;
+      max-width: 780px;
+      margin: 0 auto 40px;
       background: linear-gradient(90deg, rgba(16, 185, 129, 0.12) 0%, rgba(56, 189, 248, 0.08) 100%);
       border: 1px solid rgba(16, 185, 129, 0.3);
       border-radius: 12px;
@@ -250,126 +242,181 @@
       margin: 2px 0 0 0;
     }
 
-    /* Section Headers */
-    .section-title {
-      text-align: center;
-      margin-bottom: 40px;
+    /* Tools Section & Search */
+    .tools-section {
+      padding: 20px 0 60px;
     }
 
-    .section-title h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 10px;
+    .search-wrapper {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      position: relative;
     }
 
-    .section-title p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-
-    /* Tool Matrix Showcase */
-    .tool-showcase {
-      padding: 40px 0 80px;
-    }
-
-    .tool-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
-    }
-
-    .tool-card {
-      background: var(--card-bg);
+    .search-input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--card-border);
-      border-radius: 16px;
-      padding: 30px;
+      border-radius: 12px;
+      padding: 14px 20px 14px 44px;
+      color: #fff;
+      font-size: 0.95rem;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 16px var(--accent-glow);
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      width: 18px;
+      height: 18px;
+      pointer-events: none;
+    }
+
+    /* Scrollable List Container */
+    .tools-scroll-box {
+      max-height: 520px;
+      overflow-y: auto;
+      padding-right: 6px;
       display: flex;
       flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Custom Scrollbar */
+    .tools-scroll-box::-webkit-scrollbar {
+      width: 6px;
+    }
+    .tools-scroll-box::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 4px;
+    }
+    .tools-scroll-box::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+    }
+    .tools-scroll-box::-webkit-scrollbar-thumb:hover {
+      background: rgba(16, 185, 129, 0.5);
+    }
+
+    /* Tool Row Card */
+    .tool-item {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 22px 26px;
+      display: flex;
+      align-items: center;
       justify-content: space-between;
-      transition: all 0.25s ease;
-      position: relative;
-      overflow: hidden;
+      gap: 20px;
+      transition: all 0.2s ease;
     }
 
-    .tool-card.active-card {
-      border-color: rgba(16, 185, 129, 0.4);
-      background: linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    }
-
-    .tool-card:hover {
+    .tool-item:hover {
       border-color: var(--card-border-hover);
-      transform: translateY(-3px);
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.04);
     }
 
-    .tool-status {
-      display: inline-block;
-      padding: 3px 10px;
-      border-radius: 100px;
-      font-size: 0.75rem;
+    .tool-left {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+    }
+
+    .tool-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .tool-info h3 {
+      font-size: 1.15rem;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 16px;
-      width: fit-content;
+      color: #fff;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .status-live {
+    .badge-status {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      font-family: monospace;
       background: rgba(16, 185, 129, 0.15);
       color: #10b981;
       border: 1px solid rgba(16, 185, 129, 0.3);
     }
 
-    .status-soon {
-      background: rgba(148, 163, 184, 0.15);
-      color: #94a3b8;
-      border: 1px solid rgba(148, 163, 184, 0.3);
-    }
-
-    .tool-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--card-border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.6rem;
-      margin-bottom: 16px;
-    }
-
-    .tool-card h3 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      color: #fff;
-    }
-
-    .tool-card p {
+    .tool-info p {
       color: var(--text-muted);
-      font-size: 0.9rem;
-      line-height: 1.55;
-      margin-bottom: 24px;
+      font-size: 0.88rem;
+      line-height: 1.45;
+      max-width: 620px;
     }
 
-    .tool-links {
+    .tool-actions {
       display: flex;
-      gap: 12px;
-      margin-top: auto;
+      gap: 10px;
+      flex-shrink: 0;
     }
 
-    .tool-links .btn {
-      flex: 1;
-      font-size: 0.85rem;
+    .tool-actions .btn {
       padding: 8px 14px;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 40px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      display: none;
     }
 
     /* Philosophy / Ecosystem */
     .values-section {
       padding: 60px 0;
       border-top: 1px solid var(--card-border);
+      margin-top: 40px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .section-title h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
     }
 
     .grid-3 {
@@ -386,7 +433,7 @@
     }
 
     .value-card h4 {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 600;
       margin-bottom: 8px;
       color: #fff;
@@ -397,14 +444,14 @@
 
     .value-card p {
       color: var(--text-muted);
-      font-size: 0.88rem;
+      font-size: 0.86rem;
     }
 
     /* Footer */
     footer {
       border-top: 1px solid var(--card-border);
       padding: 40px 0;
-      margin-top: 80px;
+      margin-top: 60px;
       font-size: 0.85rem;
       color: var(--text-muted);
     }
@@ -519,9 +566,12 @@
       color: #38bdf8;
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 768px) {
       .hero { padding-top: 110px; }
       .nav-links a.nav-item { display: none; }
+      .tool-item { flex-direction: column; align-items: flex-start; }
+      .tool-actions { width: 100%; }
+      .tool-actions .btn { flex: 1; }
       .bonus-banner { flex-direction: column; text-align: center; }
       .bonus-text { text-align: center; }
       .footer-inner { flex-direction: column; text-align: center; }
@@ -547,7 +597,7 @@
         <span>Light SEO Suite</span>
       </a>
       <div class="nav-links">
-        <a href="#tools" class="nav-item">Tools Catalog</a>
+        <a href="#catalog" class="nav-item">Tools Directory</a>
         <a href="/ckfinder" class="nav-item">Competitor Finder</a>
         <a href="#ecosystem" class="nav-item">Why Us</a>
         <a href="https://chromewebstore.google.com/detail/competitor-keyword-finder/mmcajkhbkkhmcbaabeajefkdaciohodc" target="_blank" class="btn btn-secondary">
@@ -557,12 +607,12 @@
     </div>
   </header>
 
-  <!-- Main Hero -->
+  <!-- Hero -->
   <main>
     <div class="container hero">
       <div class="badge">
         <span class="badge-dot"></span>
-        Welcome Perk: 5 Free Credits Added Automatically
+        Welcome Perk: 5 Free Query Credits Included
       </div>
 
       <h1>
@@ -571,92 +621,35 @@
       </h1>
 
       <p>
-        Laser-focused, lightweight SEO extensions built for speed and results. Uncover competitor secrets, mine low-competition Blue Ocean keywords, and share credits seamlessly across all tools.
+        Laser-focused, lightweight SEO extensions built for speed and results. Access actionable search data with universal account credentials and shared query credits.
       </p>
-
-      <div class="hero-actions">
-        <a href="#tools" class="btn btn-primary">
-          Explore Suite &amp; Claim 5 Credits
-        </a>
-        <a href="/ckfinder" class="btn btn-secondary">
-          View Competitor Finder →
-        </a>
-      </div>
 
       <!-- Welcome Bonus Highlight Banner -->
       <div class="bonus-banner">
         <div class="bonus-text">
-          <h4>🎁 Instant New User Gift</h4>
-          <p>Every newly installed extension comes with <strong>5 free high-speed query searches</strong> instantly. No credit card required.</p>
+          <h4>🎁 New Account Welcome Gift</h4>
+          <p>Every newly installed extension receives <strong>5 free high-speed queries</strong> instantly. Shared across all suite tools.</p>
         </div>
         <a href="https://chromewebstore.google.com/detail/competitor-keyword-finder/mmcajkhbkkhmcbaabeajefkdaciohodc" target="_blank" class="btn btn-primary" style="padding: 8px 18px; font-size: 0.85rem;">
-          Get 5 Free Credits
+          Claim 5 Free Queries
         </a>
       </div>
     </div>
 
-    <!-- Tool Catalog Matrix -->
-    <div id="tools" class="container tool-showcase">
-      <div class="section-title">
-        <h2>Curated Tools Catalog</h2>
-        <p>Purpose-built extensions designed for maximum SEO ROI with zero dashboard bloat.</p>
+    <!-- Tools Catalog Area -->
+    <div id="catalog" class="container tools-section">
+      <!-- Live Search Bar -->
+      <div class="search-wrapper">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="toolSearch" class="search-input" placeholder="Search available SEO tools by feature or keyword..." autocomplete="off">
       </div>
 
-      <div class="tool-grid">
-        <!-- Main Tool: CKFinder -->
-        <div class="tool-card active-card">
-          <div>
-            <div class="tool-status status-live">● Live &amp; Free Trial</div>
-            <div class="tool-icon">🔍</div>
-            <h3>Competitor Keyword Finder</h3>
-            <p>
-              Inspect any competitor website in 1 click. Extract their most profitable traffic keywords, calculate automated Blue Ocean Opportunity Scores (0-100), and export CSV reports effortlessly.
-            </p>
-          </div>
-          <div class="tool-links">
-            <a href="/ckfinder" class="btn btn-secondary">
-              Product Overview
-            </a>
-            <a href="https://chromewebstore.google.com/detail/competitor-keyword-finder/mmcajkhbkkhmcbaabeajefkdaciohodc" target="_blank" class="btn btn-primary">
-              Install Chrome Ext
-            </a>
-          </div>
-        </div>
-
-        <!-- Future Tool 2: Rank Tracker -->
-        <div class="tool-card">
-          <div>
-            <div class="tool-status status-soon">Coming Soon</div>
-            <div class="tool-icon">📈</div>
-            <h3>Instant SERP Rank Tracker</h3>
-            <p>
-              Track daily Google search rankings across 9 global markets without IP bans or CAPTCHAs. Automated alerts for sudden position shifts and SERP volatility.
-            </p>
-          </div>
-          <div class="tool-links">
-            <button class="btn btn-secondary" style="width: 100%; opacity: 0.6; cursor: not-allowed;" disabled>
-              In Development
-            </button>
-          </div>
-        </div>
-
-        <!-- Future Tool 3: Backlink Scout -->
-        <div class="tool-card">
-          <div>
-            <div class="tool-status status-soon">Coming Soon</div>
-            <div class="tool-icon">🔗</div>
-            <h3>Backlink Opportunity Scout</h3>
-            <p>
-              Discover high-authority guest post targets, unlinked brand mentions, and broken backlink opportunities from direct niche rivals in real-time.
-            </p>
-          </div>
-          <div class="tool-links">
-            <button class="btn btn-secondary" style="width: 100%; opacity: 0.6; cursor: not-allowed;" disabled>
-              In Development
-            </button>
-          </div>
-        </div>
-      </div>
+      <!-- Scrollable List Container (Rendered by JS) -->
+      <div id="toolsList" class="tools-scroll-box"></div>
+      <div id="noResults" class="no-results">No matching tools found.</div>
     </div>
 
     <!-- Core Philosophy / Ecosystem -->
@@ -674,7 +667,7 @@
 
         <div class="value-card">
           <h4>⚡ 100% Pay-As-You-Go</h4>
-          <p>No forced annual contracts or monthly subscriptions. Top up as little as $5 only when you need deep search intelligence.</p>
+          <p>No forced recurring subscriptions. Top up as little as $5 only when you need deep search intelligence.</p>
         </div>
 
         <div class="value-card">
@@ -730,12 +723,92 @@
   </div>
 
   <script>
-    // Dynamic Year & Date
+    // ==========================================
+    // 1. TOOL DATA CONFIGURATION (拓展新产品只改这里)
+    // ==========================================
+    const TOOLS_CONFIG = [
+      {
+        id: "ckfinder",
+        title: "Competitor Keyword Finder",
+        icon: "🔍",
+        status: "Active",
+        description: "Inspect any competitor domain or URL in 1 click. Extract traffic keywords, automated Blue Ocean 0-100 scores, and 1-click CSV exports across 9 Google markets.",
+        path: "/ckfinder",
+        cwsUrl: "https://chromewebstore.google.com/detail/competitor-keyword-finder/mmcajkhbkkhmcbaabeajefkdaciohodc",
+        tags: ["competitor", "keywords", "blue ocean", "traffic", "export", "cws"]
+      }
+      // 以后上线新插件，直接在下方复制追加即可：
+      // {
+      //   id: "ranktracker",
+      //   title: "SERP Rank Tracker",
+      //   icon: "📈",
+      //   status: "Active",
+      //   description: "Track Google keyword rankings across 9 global markets without CAPTCHAs.",
+      //   path: "/ranktracker",
+      //   cwsUrl: "https://chromewebstore.google.com/...",
+      //   tags: ["serp", "rank", "google"]
+      // }
+    ];
+
+    // ==========================================
+    // 2. RENDER & SEARCH LOGIC
+    // ==========================================
+    const toolsContainer = document.getElementById('toolsList');
+    const searchInput = document.getElementById('toolSearch');
+    const noResults = document.getElementById('noResults');
+
+    function renderTools(list) {
+      toolsContainer.innerHTML = '';
+      if (list.length === 0) {
+        noResults.style.display = 'block';
+        return;
+      }
+      noResults.style.display = 'none';
+
+      list.forEach(tool => {
+        const item = document.createElement('div');
+        item.className = 'tool-item';
+        item.innerHTML = `
+          <div class="tool-left">
+            <div class="tool-icon-box">${tool.icon}</div>
+            <div class="tool-info">
+              <h3>
+                ${tool.title}
+                <span class="badge-status">${tool.status}</span>
+              </h3>
+              <p>${tool.description}</p>
+            </div>
+          </div>
+          <div class="tool-actions">
+            <a href="${tool.path}" class="btn btn-secondary">Learn More</a>
+            <a href="${tool.cwsUrl}" target="_blank" class="btn btn-primary">Install Extension</a>
+          </div>
+        `;
+        toolsContainer.appendChild(item);
+      });
+    }
+
+    // Initial Render
+    renderTools(TOOLS_CONFIG);
+
+    // Live Filter Handler
+    searchInput.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      const filtered = TOOLS_CONFIG.filter(t => 
+        t.title.toLowerCase().includes(q) ||
+        t.description.toLowerCase().includes(q) ||
+        t.tags.some(tag => tag.toLowerCase().includes(q))
+      );
+      renderTools(filtered);
+    });
+
+    // ==========================================
+    // 3. COMMON UTILITIES & MODALS
+    // ==========================================
     const now = new Date();
     document.getElementById('current-year').textContent = now.getFullYear();
     document.getElementById('privacy-date').textContent = now.toISOString().slice(0, 10);
 
-    // Modal Control Functions
     function openModal(id) {
       document.getElementById(id).classList.add('active');
       document.body.style.overflow = 'hidden';
@@ -747,12 +820,9 @@
     }
 
     function closeOnBackdrop(e, id) {
-      if (e.target.id === id) {
-        closeModal(id);
-      }
+      if (e.target.id === id) closeModal(id);
     }
 
-    // Copy Email Helper
     function copyEmail(btn) {
       navigator.clipboard.writeText('iansilas@proton.me').then(() => {
         const originalText = btn.textContent;
@@ -765,7 +835,6 @@
       });
     }
 
-    // ESC key closes active modal
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         closeModal('privacyModal');
