@@ -7,6 +7,7 @@
   <meta name="description" content="A curated directory of lightweight, high-performance SEO browser extensions. One universal account and shared credit pool across all tools.">
   <meta name="google-site-verification" content="hhfNWwv3vHN8Wuo2nIa4goAz-KsXEpvYdK_1b4RcwQA" />
   
+  <!-- Native SVG Favicon -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23090a0f'/%3E%3Crect width='30' height='30' x='1' y='1' rx='7' fill='none' stroke='%2310b981' stroke-opacity='0.3'/%3E%3Ccircle cx='13.5' cy='13.5' r='5.5' fill='none' stroke='%2310b981' stroke-width='2.2'/%3E%3Cpath d='M17.5 17.5L23 23' stroke='%2310b981' stroke-width='2.2' stroke-linecap='round'/%3E%3Cpath d='M11 13.5h5M13.5 11v5' stroke='%2310b981' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E" type="image/svg+xml">
   
   <style>
@@ -529,6 +530,7 @@
 
   <div class="glow-overlay"></div>
 
+  <!-- Navigation -->
   <header>
     <div class="container nav-inner">
       <a href="/" class="brand">
@@ -549,6 +551,7 @@
     </div>
   </header>
 
+  <!-- Hero Section -->
   <main>
     <div class="container hero">
       <div class="badge">
@@ -566,7 +569,9 @@
       </p>
     </div>
 
+    <!-- Tools Directory Area -->
     <div id="directory" class="container tools-section">
+      <!-- Search Filter -->
       <div class="search-wrapper">
         <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="11" cy="11" r="8"></circle>
@@ -575,10 +580,63 @@
         <input type="text" id="toolSearch" class="search-input" placeholder="Filter tools by name, utility, or keyword..." autocomplete="off">
       </div>
 
-      <div id="toolsList" class="tools-scroll-box"></div>
+      <!-- Static HTML Tools List for Maximum SEO Crawlability -->
+      <div id="toolsList" class="tools-scroll-box">
+        
+        <!-- Tool Item: ckfinder -->
+        <div class="tool-item" id="tool-ckfinder" data-tags="competitor keywords blue ocean traffic ranking serp">
+          <div class="tool-left">
+            <div class="tool-icon-box">🔍</div>
+            <div class="tool-info">
+              <h3>
+                Competitor Keyword Finder
+                <span class="badge-status">Active</span>
+              </h3>
+              <p>Analyze competitor domains to extract high-traffic keywords, automated 0-100 Blue Ocean opportunity scores, and instant CSV datasets across 9 Google markets.</p>
+            </div>
+          </div>
+          <div class="tool-actions">
+            <a href="https://chromewebstore.google.com/detail/competitor-keyword-finder/mmcajkhbkkhmcbaabeajefkdaciohodc" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              Add to Chrome
+            </a>
+          </div>
+        </div>
+
+        <!-- Tool Item: compare -->
+        <div class="tool-item" id="tool-compare" data-tags="compare seo content gap competitor rankings keywords side by side on-page diff">
+          <div class="tool-left">
+            <div class="tool-icon-box">⚡</div>
+            <div class="tool-info">
+              <h3>
+                Compare 2 Websites SEO
+                <span class="badge-status">Active</span>
+              </h3>
+              <p>Side-by-side SEO comparison tool. Inspect on-page DOM, word count &amp; heading hierarchies for free, plus head-to-head Google rankings &amp; organic keyword gaps.</p>
+            </div>
+          </div>
+          <div class="tool-actions">
+            <a href="https://chromewebstore.google.com/detail/compare-2-websites-seo-co/obneicfolpajedlgjeaihpagmfbaalid" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              Add to Chrome
+            </a>
+          </div>
+        </div>
+
+      </div>
+
       <div id="noResults" class="no-results">No matching tools found.</div>
     </div>
 
+    <!-- Platform Architecture & Standards -->
     <div id="architecture" class="container values-section">
       <div class="section-title">
         <h2>Platform Standards</h2>
@@ -604,9 +662,10 @@
     </div>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="container footer-inner">
-      <div>&copy; <span id="current-year"></span> Light SEO Suite. All rights reserved.</div>
+      <div>&copy; 2026 Light SEO Suite. All rights reserved.</div>
       <div class="footer-links">
         <button type="button" onclick="openModal('privacyModal')">Privacy Policy</button>
         <button type="button" onclick="openModal('supportModal')">Contact Support</button>
@@ -614,11 +673,12 @@
     </div>
   </footer>
 
+  <!-- Privacy Policy Modal -->
   <div id="privacyModal" class="modal-backdrop" onclick="closeOnBackdrop(event, 'privacyModal')">
     <div class="modal-box">
       <button class="modal-close" onclick="closeModal('privacyModal')">&times;</button>
       <h3>Privacy Policy</h3>
-      <p>Last updated: <span id="privacy-date"></span></p>
+      <p>Last updated: 2026-03-01</p>
       <p><strong>1. Data Collection:</strong> Light SEO Suite respects user privacy. We do not collect, monitor, or store browsing activity, search histories, or sensitive client data.</p>
       <p><strong>2. Tool Operations:</strong> Domain queries and search metrics are fetched on-demand when explicitly triggered by the user.</p>
       <p><strong>3. Third-Party Sharing:</strong> We do not sell or transfer user analytics or personal records to external advertising agencies.</p>
@@ -626,6 +686,7 @@
     </div>
   </div>
 
+  <!-- Contact Support Modal -->
   <div id="supportModal" class="modal-backdrop" onclick="closeOnBackdrop(event, 'supportModal')">
     <div class="modal-box">
       <button class="modal-close" onclick="closeModal('supportModal')">&times;</button>
@@ -643,73 +704,37 @@
     </div>
   </div>
 
-  <script src="./products.js"></script>
-
   <script>
     // =========================================================================
-    // 1. RENDER & LIVE SEARCH LOGIC
+    // 1. LIVE SEARCH & FILTER (纯前端显隐过滤，不破坏任何 DOM 节点与爬虫权重)
     // =========================================================================
-    const listContainer = document.getElementById('toolsList');
     const searchInput = document.getElementById('toolSearch');
+    const toolItems = document.querySelectorAll('.tool-item');
     const emptyState = document.getElementById('noResults');
-
-    function renderRegistry(items) {
-      listContainer.innerHTML = '';
-      if (items.length === 0) {
-        emptyState.style.display = 'block';
-        return;
-      }
-      emptyState.style.display = 'none';
-
-      items.forEach(tool => {
-        const row = document.createElement('div');
-        row.className = 'tool-item';
-        row.id = `tool-${tool.id}`;
-        row.innerHTML = `
-          <div class="tool-left">
-            <div class="tool-icon-box">${tool.icon}</div>
-            <div class="tool-info">
-              <h3>
-                ${tool.title}
-                <span class="badge-status">${tool.status}</span>
-              </h3>
-              <p>${tool.description}</p>
-            </div>
-          </div>
-          <div class="tool-actions">
-            <a href="${tool.storeUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
-              </svg>
-              Add to Chrome
-            </a>
-          </div>
-        `;
-        listContainer.appendChild(row);
-      });
-    }
 
     function filterTools(query) {
       const q = query.toLowerCase().trim();
-      const matched = TOOLS_REGISTRY.filter(item => 
-        item.title.toLowerCase().includes(q) ||
-        item.description.toLowerCase().includes(q) ||
-        item.tags.some(t => t.toLowerCase().includes(q))
-      );
-      renderRegistry(matched);
+      let visibleCount = 0;
+
+      toolItems.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        const tags = item.getAttribute('data-tags') || '';
+        if (!q || text.includes(q) || tags.includes(q)) {
+          item.style.display = 'flex';
+          visibleCount++;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
     }
 
-    // 初始渲染
-    renderRegistry(TOOLS_REGISTRY);
-
-    // 实时搜索监听
     searchInput.addEventListener('input', (e) => {
       filterTools(e.target.value);
     });
 
-    // 支持 URL 参数过滤定位 (例如: domain.com/?tool=ckfinder)
+    // 支持 URL 参数过滤/定位 (例如: https://domain.com/?tool=ckfinder)
     const urlParams = new URLSearchParams(window.location.search);
     const toolParam = urlParams.get('tool');
     if (toolParam) {
@@ -718,12 +743,8 @@
     }
 
     // =========================================================================
-    // 2. UTILITIES & MODAL CONTROLS
+    // 2. MODAL & UTILITY CONTROLS
     // =========================================================================
-    const currentDate = new Date();
-    document.getElementById('current-year').textContent = currentDate.getFullYear();
-    document.getElementById('privacy-date').textContent = currentDate.toISOString().slice(0, 10);
-
     function openModal(id) {
       document.getElementById(id).classList.add('active');
       document.body.style.overflow = 'hidden';
