@@ -149,6 +149,19 @@
       transform: translateY(-1px);
     }
 
+    /* 待审核灰色按钮 */
+    .btn-pending {
+      background: rgba(255, 255, 255, 0.08);
+      color: #94a3b8;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      cursor: pointer;
+    }
+
+    .btn-pending:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: #cbd5e1;
+    }
+
     .btn-secondary {
       background: rgba(255, 255, 255, 0.05);
       color: var(--text-main);
@@ -288,23 +301,26 @@
       transform: translateY(-1px);
     }
 
+    /* 灰色图标样式 */
+    .tool-icon-img {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .tool-icon-grayscale {
+      filter: grayscale(100%);
+      opacity: 0.6;
+    }
+
     .tool-left {
       display: flex;
       align-items: flex-start;
       gap: 16px;
-    }
-
-    .tool-icon-box {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--card-border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.35rem;
-      flex-shrink: 0;
     }
 
     .tool-info h3 {
@@ -326,6 +342,12 @@
       background: rgba(16, 185, 129, 0.15);
       color: #10b981;
       border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .badge-status.pending {
+      background: rgba(148, 163, 184, 0.15);
+      color: #94a3b8;
+      border: 1px solid rgba(148, 163, 184, 0.3);
     }
 
     .tool-info p {
@@ -580,13 +602,13 @@
         <input type="text" id="toolSearch" class="search-input" placeholder="Filter tools by name, utility, or keyword..." autocomplete="off">
       </div>
 
-      <!-- Static HTML Tools List for Maximum SEO Crawlability -->
+      <!-- Static HTML Tools List -->
       <div id="toolsList" class="tools-scroll-box">
         
-        <!-- Tool Item: ckfinder -->
+        <!-- Tool 1: ckfinder (Active) -->
         <div class="tool-item" id="tool-ckfinder" data-tags="competitor keywords blue ocean traffic ranking serp">
           <div class="tool-left">
-            <div class="tool-icon-box">🔍</div>
+            <img src="https://lh3.googleusercontent.com/lCW3TpYdC6LDv8VEDzPvBr1N3ah-fX3zonQR-jm07LOoWwtbMxKcXxHyRLvJuw4spF9kTSBkgeRZpng5R0y4hkaA7aw=s120" alt="Competitor Keyword Finder Icon" class="tool-icon-img" width="44" height="44" loading="lazy">
             <div class="tool-info">
               <h3>
                 Competitor Keyword Finder
@@ -607,27 +629,28 @@
           </div>
         </div>
 
-        <!-- Tool Item: compare -->
+        <!-- Tool 2: compare (Pending Review / 审核中) -->
         <div class="tool-item" id="tool-compare" data-tags="compare seo content gap competitor rankings keywords side by side on-page diff">
           <div class="tool-left">
-            <div class="tool-icon-box">⚡</div>
+            <div class="tool-icon-img tool-icon-grayscale" style="display: flex; align-items: center; justify-content: center; font-size: 1.35rem;">
+              ⚡
+            </div>
             <div class="tool-info">
               <h3>
                 Compare 2 Websites SEO
-                <span class="badge-status">Active</span>
+                <span class="badge-status pending">In Review</span>
               </h3>
               <p>Side-by-side SEO comparison tool. Inspect on-page DOM, word count &amp; heading hierarchies for free, plus head-to-head Google rankings &amp; organic keyword gaps.</p>
             </div>
           </div>
           <div class="tool-actions">
-            <a href="https://chromewebstore.google.com/detail/compare-2-websites-seo-co/obneicfolpajedlgjeaihpagmfbaalid" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <button type="button" class="btn btn-pending" onclick="alert('正在审核中，请稍后再试！')">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
               </svg>
-              Add to Chrome
-            </a>
+              Pending Review
+            </button>
           </div>
         </div>
 
@@ -706,7 +729,7 @@
 
   <script>
     // =========================================================================
-    // 1. LIVE SEARCH & FILTER (纯前端显隐过滤，不破坏任何 DOM 节点与爬虫权重)
+    // 1. LIVE SEARCH & FILTER
     // =========================================================================
     const searchInput = document.getElementById('toolSearch');
     const toolItems = document.querySelectorAll('.tool-item');
@@ -734,7 +757,6 @@
       filterTools(e.target.value);
     });
 
-    // 支持 URL 参数过滤/定位 (例如: https://domain.com/?tool=ckfinder)
     const urlParams = new URLSearchParams(window.location.search);
     const toolParam = urlParams.get('tool');
     if (toolParam) {
