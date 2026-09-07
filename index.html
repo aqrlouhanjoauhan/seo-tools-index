@@ -311,12 +311,6 @@
       border: 1px solid var(--card-border);
       background: rgba(255, 255, 255, 0.04);
       display: block;
-      transition: opacity 0.2s ease, transform 0.2s ease;
-    }
-
-    .tool-left a:hover .tool-icon-img {
-      opacity: 0.85;
-      transform: scale(1.03);
     }
 
     .tool-icon-grayscale {
@@ -340,7 +334,7 @@
       gap: 8px;
     }
 
-    /* 标题锚文本样式优化 */
+    /* 核心精确锚文本样式 */
     .tool-info h3 a {
       color: inherit;
       text-decoration: none;
@@ -626,12 +620,11 @@
         <!-- Tool 1: ckfinder (Active) -->
         <div class="tool-item" id="tool-ckfinder" data-tags="competitor keywords blue ocean traffic ranking serp">
           <div class="tool-left">
-            <a href="https://chromewebstore.google.com/detail/competitor-keyword-finder/mmcajkhbkkhmcbaabeajefkdaciohodc" target="_blank" rel="noopener noreferrer" tabindex="-1">
-              <img src="https://lh3.googleusercontent.com/lCW3TpYdC6LDv8VEDzPvBr1N3ah-fX3zonQR-jm07LOoWwtbMxKcXxHyRLvJuw4spF9kTSBkgeRZpng5R0y4hkaA7aw=s120" alt="Competitor Keyword Finder Extension" class="tool-icon-img" width="44" height="44" loading="lazy">
-            </a>
+            <img src="https://lh3.googleusercontent.com/lCW3TpYdC6LDv8VEDzPvBr1N3ah-fX3zonQR-jm07LOoWwtbMxKcXxHyRLvJuw4spF9kTSBkgeRZpng5R0y4hkaA7aw=s120" alt="Competitor Keyword Finder Extension" class="tool-icon-img" width="44" height="44" loading="lazy">
             <div class="tool-info">
               <h3>
-                <a href="https://chromewebstore.google.com/detail/competitor-keyword-finder/mmcajkhbkkhmcbaabeajefkdaciohodc" target="_blank" rel="noopener noreferrer">
+                <!-- 核心精准锚文本：去掉了 noreferrer，保留 noopener 安全属性 -->
+                <a href="https://chromewebstore.google.com/detail/competitor-keyword-finder/mmcajkhbkkhmcbaabeajefkdaciohodc" target="_blank" rel="noopener">
                   Competitor Keyword Finder
                 </a>
                 <span class="badge-status">Active</span>
@@ -642,10 +635,8 @@
           <div class="tool-actions">
             <a href="https://chromewebstore.google.com/detail/competitor-keyword-finder/mmcajkhbkkhmcbaabeajefkdaciohodc" 
                target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary"
-               title="Install Competitor Keyword Finder Chrome Extension"
-               aria-label="Add Competitor Keyword Finder to Chrome">
+               rel="noopener" 
+               class="btn btn-primary">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                 <polyline points="15 3 21 3 21 9"></polyline>
@@ -659,12 +650,11 @@
         <!-- Tool 2: compare (Active) -->
         <div class="tool-item" id="tool-compare" data-tags="compare seo content gap competitor rankings keywords side by side on-page diff">
           <div class="tool-left">
-            <a href="https://chromewebstore.google.com/detail/compare-2-websites-seo-co/mfoehhkaioagppbbbknhehglkeidncco" target="_blank" rel="noopener noreferrer" tabindex="-1">
-              <img src="https://lh3.googleusercontent.com/nlj52G7AqJnriE98K0u2QOWkrjQmm2mV6-KWoBjRDk0JhUzKI3R4v6nrbLS8UvdvmOZaE9IZ7LuJ7UE3P6_q8JY=s120" alt="Compare 2 Websites SEO Extension" class="tool-icon-img" width="44" height="44" loading="lazy">
-            </a>
+            <img src="https://lh3.googleusercontent.com/nlj52G7AqJnriE98K0u2QOWkrjQmm2mV6-KWoBjRDk0JhUzKI3R4v6nrbLS8UvdvmOZaE9IZ7LuJ7UE3P6_q8JY=s120" alt="Compare 2 Websites SEO Extension" class="tool-icon-img" width="44" height="44" loading="lazy">
             <div class="tool-info">
               <h3>
-                <a href="https://chromewebstore.google.com/detail/compare-2-websites-seo-co/mfoehhkaioagppbbbknhehglkeidncco" target="_blank" rel="noopener noreferrer">
+                <!-- 核心精准锚文本：去掉了 noreferrer，保留 noopener 安全属性 -->
+                <a href="https://chromewebstore.google.com/detail/compare-2-websites-seo-co/mfoehhkaioagppbbbknhehglkeidncco" target="_blank" rel="noopener">
                   Compare 2 Websites SEO
                 </a>
                 <span class="badge-status">Active</span>
@@ -675,10 +665,8 @@
           <div class="tool-actions">
             <a href="https://chromewebstore.google.com/detail/compare-2-websites-seo-co/mfoehhkaioagppbbbknhehglkeidncco" 
                target="_blank" 
-               rel="noopener noreferrer" 
-               class="btn btn-primary"
-               title="Install Compare 2 Websites SEO Chrome Extension"
-               aria-label="Add Compare 2 Websites SEO to Chrome">
+               rel="noopener" 
+               class="btn btn-primary">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                 <polyline points="15 3 21 3 21 9"></polyline>
