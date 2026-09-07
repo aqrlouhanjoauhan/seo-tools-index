@@ -7,6 +7,22 @@ A curated directory and open ecosystem of high-performance, lightweight browser 
 
 ---
 
+## 🛠️ Featured Extensions (Available Now)
+
+### 🔍 [Competitor Keyword Finder](https://chromewebstore.google.com/detail/competitor-keyword-finder/mmcajkhbkkhmcbaabeajefkdaciohodc)
+*Instant Chrome extension to reverse-engineer competitor domains, filter out ultra-competitive search queries, and uncover high-intent Blue Ocean keywords with 0–100 opportunity scoring.*
+* **Status**: 🟢 Active (Available Now)
+* **Chrome Store**: 👉 **[Install Competitor Keyword Finder on Chrome Web Store](https://chromewebstore.google.com/detail/competitor-keyword-finder/mmcajkhbkkhmcbaabeajefkdaciohodc)**
+
+---
+
+### ⚔️ [Compare 2 Websites SEO](https://chromewebstore.google.com/detail/compare-2-websites-seo-co/mfoehhkaioagppbbbknhehglkeidncco)
+*Side-by-side SEO comparison tool. Inspect on-page DOM, word count & heading hierarchies for free, plus head-to-head Google rankings & organic keyword gaps.*
+* **Status**: 🟢 Active (Available Now)
+* **Chrome Store**: 👉 **[Install Compare 2 Websites SEO on Chrome Web Store](https://chromewebstore.google.com/detail/compare-2-websites-seo-co/mfoehhkaioagppbbbknhehglkeidncco)**
+
+---
+
 ## 🎯 About The Project
 
 Traditional SEO suites (like Ahrefs or Semrush) are bloated, complicated, and lock users into hefty $100+/month subscriptions. **Light SEO Suite** takes a micro-utility approach: single-purpose, highly efficient browser extensions that perform specific, high-leverage SEO tasks directly from your current tab.
