@@ -1,0 +1,14 @@
+{
+  "use_params": [
+    "keywords",
+    "location_code",
+    "language_code"
+  ],
+  "params": {
+    "search_partners": {
+      "type": "boolean",
+      "description": "Include Google search partners network. Default is <code>false</code>.",
+      "default": false
+    }
+  }
+}
