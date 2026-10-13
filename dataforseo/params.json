@@ -6,9 +6,9 @@
   },
   "keywords": {
     "type": "array",
-    "description": "List of keywords to analyze (JSON array format), e.g. <code>[\"seo tools\", \"keyword rank tracker\"]</code>",
-    "default": "[\"seo tools\", \"keyword rank tracker\"]"
-  },
+    "description": "List of keywords to analyze. Click to add: <code>seo tools</code> or <code>rank tracker</code>",
+    "default": "[\"seo tools\", \"rank tracker\"]"
+  }
   "target": {
     "type": "string",
     "description": "Domain, subdomain, or target URL without protocol (http/https), e.g. <code>example.com</code> or <code>dataforseo.com</code>",
