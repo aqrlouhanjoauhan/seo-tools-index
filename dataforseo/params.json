@@ -1,0 +1,32 @@
+{
+  "target": {
+    "type": "string",
+    "description": "Domain or URL to analyze without scheme, e.g. <code>example.com</code> or <code>domain.com/page</code>",
+    "default": "dataforseo.com",
+    "required": true
+  },
+  "keyword": {
+    "type": "string",
+    "description": "Target search keyword phrase, e.g. <code>seo api</code> or <code>rank tracker</code>",
+    "default": "seo software",
+    "required": true
+  },
+  "location_code": {
+    "type": "number",
+    "description": "Standard location code according to DataForSEO docs, e.g. <code>2840</code> for United States.",
+    "default": 2840,
+    "required": false
+  },
+  "language_code": {
+    "type": "string",
+    "description": "Two-letter ISO language code, e.g. <code>en</code>, <code>es</code>, <code>de</code>.",
+    "default": "en",
+    "required": false
+  },
+  "limit": {
+    "type": "number",
+    "description": "Maximum number of items returned in the result set, max <code>1000</code>.",
+    "default": 10,
+    "required": false
+  }
+}
