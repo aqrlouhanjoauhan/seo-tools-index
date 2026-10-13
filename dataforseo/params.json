@@ -1,18 +1,18 @@
 {
   "keyword": {
     "type": "string",
-    "description": "Target keyword or search phrase (up to 700 chars), e.g. <code>seo software</code> or <code>best running shoes</code>",
+    "description": "Target keyword or search phrase (up to 700 chars), e.g. <code>best running shoes</code>",
     "default": "best running shoes"
   },
   "keywords": {
     "type": "array",
-    "description": "List of keywords to analyze. Click to add: <code>seo tools</code> or <code>rank tracker</code>",
+    "description": "List of keywords to analyze. Click to add: <code>seo tools</code>, <code>rank tracker</code>",
     "default": "[\"seo tools\", \"rank tracker\"]"
-  }
+  },
   "target": {
     "type": "string",
-    "description": "Domain, subdomain, or target URL without protocol (http/https), e.g. <code>example.com</code> or <code>dataforseo.com</code>",
-    "default": "example.com"
+    "description": "Domain or target URL without protocol (http/https), e.g. <code>dataforseo.com</code>",
+    "default": ""
   },
   "location_code": {
     "type": "number",
