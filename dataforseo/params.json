@@ -1,27 +1,32 @@
 {
   "keyword": {
     "type": "string",
-    "description": "The search query (up to 700 characters), e.g. <code>best running shoes</code>",
+    "description": "Target keyword or search phrase (up to 700 chars), e.g. <code>seo software</code> or <code>best running shoes</code>",
     "default": "best running shoes"
+  },
+  "keywords": {
+    "type": "array",
+    "description": "List of keywords to analyze (JSON array format), e.g. <code>[\"seo tools\", \"keyword rank tracker\"]</code>",
+    "default": "[\"seo tools\", \"keyword rank tracker\"]"
+  },
+  "target": {
+    "type": "string",
+    "description": "Domain, subdomain, or target URL without protocol (http/https), e.g. <code>example.com</code> or <code>dataforseo.com</code>",
+    "default": "example.com"
   },
   "location_code": {
     "type": "number",
-    "description": "Google location code, e.g. <code>2840</code> for United States",
+    "description": "Google Location ID. Common Countries: <code>2840</code> (US), <code>2826</code> (UK), <code>2124</code> (Canada), <code>2036</code> (Australia), <code>2276</code> (Germany), <code>2250</code> (France), <code>2392</code> (Japan), <code>2410</code> (South Korea), <code>2356</code> (India), <code>2156</code> (China), <code>2344</code> (Hong Kong), <code>2158</code> (Taiwan), <code>2702</code> (Singapore), <code>2484</code> (Mexico), <code>2076</code> (Brazil), <code>2724</code> (Spain), <code>2380</code> (Italy), <code>2528</code> (Netherlands), <code>2756</code> (Switzerland), <code>2752</code> (Sweden), <code>2040</code> (Austria), <code>2764</code> (Thailand), <code>2704</code> (Vietnam), <code>2458</code> (Malaysia), <code>2360</code> (Indonesia), <code>2710</code> (South Africa)",
     "default": 2840
   },
   "language_code": {
     "type": "string",
-    "description": "Two-letter ISO language code, e.g. <code>en</code>, <code>es</code>",
+    "description": "Two-letter ISO 639-1 language code. Available: <code>en</code> (English), <code>zh-CN</code> (Simplified Chinese), <code>zh-TW</code> (Traditional Chinese), <code>es</code> (Spanish), <code>de</code> (German), <code>fr</code> (French), <code>ja</code> (Japanese), <code>ko</code> (Korean), <code>pt</code> (Portuguese), <code>it</code> (Italian), <code>nl</code> (Dutch), <code>ru</code> (Russian), <code>ar</code> (Arabic), <code>hi</code> (Hindi), <code>th</code> (Thai), <code>vi</code> (Vietnamese), <code>id</code> (Indonesian), <code>tr</code> (Turkish), <code>pl</code> (Polish), <code>sv</code> (Swedish)",
     "default": "en"
-  },
-  "target": {
-    "type": "string",
-    "description": "Target domain/URL to track, e.g. <code>example.com</code>",
-    "default": ""
   },
   "depth": {
     "type": "number",
-    "description": "Number of search results to parse (default 10, max 100)",
+    "description": "Number of SERP items to crawl/return. Default is <code>10</code>, maximum is <code>100</code>.",
     "default": 10
   }
 }
