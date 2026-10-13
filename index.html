@@ -938,7 +938,7 @@
         if (!res.ok) throw new Error('Failed to fetch base.json');
         const data = await res.json();
         
-        cachedAffiliateUrl = data.affiliate_url '';
+        cachedAffiliateUrl = data.affiliate_url || '';
 
         if (cachedAffiliateUrl) {
           document.querySelectorAll('.dataforseo-ref-link').forEach(link => {
