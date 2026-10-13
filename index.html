@@ -670,7 +670,7 @@
       <!-- Search Filter -->
       <div class="search-wrapper">
         <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"></circle>
+          <circle cx="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
         <input type="text" id="toolSearch" class="search-input" placeholder="Filter tools by keyword, API endpoint, or functionality..." autocomplete="off">
@@ -802,13 +802,14 @@
         </div>
       </div>
 
-      <!-- DataForSEO 动态返利 Banner -->
+      <!-- DataForSEO Banner para iti dinamiko a referral link -->
       <div class="authority-banner">
         <div class="authority-banner-text">
           <h3>Need an official DataForSEO API account?</h3>
           <p>Sign up directly with DataForSEO to receive sandbox test credits and full API access credentials.</p>
         </div>
-        <a href="https://dataforseo.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary dataforseo-ref-link" id="btn-dataforseo-cta">
+        <!-- Naikkat amin a hardcoded URL; agtalinaed iti href="#" agingga maiyasideg ti base.json -->
+        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary dataforseo-ref-link" id="btn-dataforseo-cta">
           Sign up with DataForSEO ↗
         </a>
       </div>
@@ -926,26 +927,50 @@
     }
 
     // =========================================================================
-    // 2. 动态从 ./dataforseo/base.json 获取推广返利链接
+    // 2. DINAMIKO A PANAGALA TI REFERRAL LINK MANIPUD ITI ./dataforseo/base.json
     // =========================================================================
+    let cachedAffiliateUrl = '';
+
     async function initDataForSeoRefLinks() {
       const BASE_JSON_URL = './dataforseo/base.json';
       try {
         const res = await fetch(BASE_JSON_URL);
-        if (!res.ok) return;
+        if (!res.ok) throw new Error('Failed to fetch base.json');
         const data = await res.json();
         
-        // 自动识别 affiliate_link、ref_link 或 partner_link 字段
-        const refUrl = data.affiliate_link || data.ref_link || data.partner_link;
-        if (refUrl) {
+        cachedAffiliateUrl = data.affiliate_link || data.ref_link || data.partner_link || '';
+
+        if (cachedAffiliateUrl) {
           document.querySelectorAll('.dataforseo-ref-link').forEach(link => {
-            link.href = refUrl;
+            link.href = cachedAffiliateUrl;
           });
         }
       } catch (err) {
-        console.warn('Failed to load base.json for affiliate link:', err);
+        console.warn('Could not load affiliate link from base.json:', err);
       }
     }
+
+    // Pangsalaknib: No mapindut ti silpo bayat a di pay nalpas ti panagkarga ti JSON
+    document.addEventListener('click', (e) => {
+      const target = e.target.closest('.dataforseo-ref-link');
+      if (target) {
+        if (!cachedAffiliateUrl || target.getAttribute('href') === '#') {
+          e.preventDefault();
+          fetch('./dataforseo/base.json')
+            .then(res => res.json())
+            .then(data => {
+              const url = data.affiliate_link || data.ref_link || data.partner_link;
+              if (url) {
+                target.href = url;
+                window.open(url, '_blank', 'noopener,noreferrer');
+              }
+            })
+            .catch(err => {
+              console.error('Failed to open link dynamically:', err);
+            });
+        }
+      }
+    });
 
     // =========================================================================
     // 3. MODAL & UTILITY CONTROLS
@@ -983,7 +1008,7 @@
       }
     });
 
-    // 页面加载完成后统一初始化
+    // Maiyuna a maipatungpal kalpasan ti panagkarga ti panid
     document.addEventListener('DOMContentLoaded', () => {
       initDataForSeoRefLinks();
     });
