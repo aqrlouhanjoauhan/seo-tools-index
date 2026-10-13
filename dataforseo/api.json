@@ -18,5 +18,10 @@
     "file": "dataforseo_labs_google_keyword_ideas.json",
     "api": "dataforseo_labs/google/keyword_ideas/live",
     "desc": "Google Keyword Ideas Live (Brainstorm & discover related long-tail keywords from seed terms)"
+  },
+  {
+    "file": "backlinks_summary_live.json",
+    "api": "backlinks/summary/live",
+    "desc": "Backlinks Profile Summary Live (Analyze domain rank, total backlinks, and referring domains)"
   }
 ]
