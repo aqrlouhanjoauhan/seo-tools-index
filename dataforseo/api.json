@@ -13,5 +13,10 @@
     "file": "dataforseo_labs_google_ranked_keywords.json",
     "api": "dataforseo_labs/google/ranked_keywords/live",
     "desc": "Google Ranked Keywords Live (Reverse engineer any competitor domain's ranking keywords)"
+  },
+  {
+    "file": "dataforseo_labs_google_keyword_ideas.json",
+    "api": "dataforseo_labs/google/keyword_ideas/live",
+    "desc": "Google Keyword Ideas Live (Brainstorm & discover related long-tail keywords from seed terms)"
   }
 ]
