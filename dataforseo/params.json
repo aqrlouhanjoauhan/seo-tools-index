@@ -1,32 +1,27 @@
 {
-  "target": {
-    "type": "string",
-    "description": "Domain or URL to analyze without scheme, e.g. <code>example.com</code> or <code>domain.com/page</code>",
-    "default": "dataforseo.com",
-    "required": true
-  },
   "keyword": {
     "type": "string",
-    "description": "Target search keyword phrase, e.g. <code>seo api</code> or <code>rank tracker</code>",
-    "default": "seo software",
-    "required": true
+    "description": "The search query (up to 700 characters), e.g. <code>best running shoes</code>",
+    "default": "best running shoes"
   },
   "location_code": {
     "type": "number",
-    "description": "Standard location code according to DataForSEO docs, e.g. <code>2840</code> for United States.",
-    "default": 2840,
-    "required": false
+    "description": "Google location code, e.g. <code>2840</code> for United States",
+    "default": 2840
   },
   "language_code": {
     "type": "string",
-    "description": "Two-letter ISO language code, e.g. <code>en</code>, <code>es</code>, <code>de</code>.",
-    "default": "en",
-    "required": false
+    "description": "Two-letter ISO language code, e.g. <code>en</code>, <code>es</code>",
+    "default": "en"
   },
-  "limit": {
+  "target": {
+    "type": "string",
+    "description": "Target domain/URL to track, e.g. <code>example.com</code>",
+    "default": ""
+  },
+  "depth": {
     "type": "number",
-    "description": "Maximum number of items returned in the result set, max <code>1000</code>.",
-    "default": 10,
-    "required": false
+    "description": "Number of search results to parse (default 10, max 100)",
+    "default": 10
   }
 }
