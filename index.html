@@ -670,7 +670,7 @@
       <!-- Search Filter -->
       <div class="search-wrapper">
         <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" r="8"></circle>
+          <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
         <input type="text" id="toolSearch" class="search-input" placeholder="Filter tools by keyword, API endpoint, or functionality..." autocomplete="off">
@@ -808,7 +808,7 @@
           <h3>Need an official DataForSEO API account?</h3>
           <p>Sign up directly with DataForSEO to receive sandbox test credits and full API access credentials.</p>
         </div>
-        <!-- Naikkat amin a hardcoded URL; agtalinaed iti href="#" agingga maiyasideg ti base.json -->
+        <!-- 保持 href="#"，加载时由 JS 自动从 base.json 注入专属推广链接 -->
         <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary dataforseo-ref-link" id="btn-dataforseo-cta">
           Sign up with DataForSEO ↗
         </a>
@@ -844,10 +844,11 @@
   <!-- Footer -->
   <footer>
     <div class="container footer-inner">
-      <div>&copy; 2026 SEO360. All rights reserved.</div>
+      <!-- 动态年份容器 -->
+      <div>&copy; <span id="currentYear"></span> SEO360. All rights reserved.</div>
       <div class="footer-links">
         <a href="https://github.com/aqrlouhanjoauhan/seo360" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <button type="button" onclick="openModal('privacyModal')">Privacy Policy</button>
+        <a href="/privacy.html" style="color:var(--text-muted);text-decoration:none;font-size:0.85rem;">Privacy Policy</a>
         <button type="button" onclick="openModal('supportModal')">Contact Support</button>
       </div>
     </div>
@@ -857,19 +858,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- Privacy Policy Modal -->
-  <div id="privacyModal" class="modal-backdrop" onclick="closeOnBackdrop(event, 'privacyModal')">
-    <div class="modal-box">
-      <button class="modal-close" onclick="closeModal('privacyModal')">&times;</button>
-      <h3>Privacy Policy</h3>
-      <p>Last updated: October 2026</p>
-      <p><strong>1. BYOK Architecture:</strong> All extensions operate under a Bring Your Own Key (BYOK) model. Users supply their own DataForSEO API credentials, which are stored solely within the local Chrome browser storage (<code>chrome.storage.local</code>).</p>
-      <p><strong>2. Direct Network Transmission:</strong> HTTP requests are dispatched directly from the client's browser environment to the official DataForSEO API servers (<code>api.dataforseo.com</code>). No query parameters, payload bodies, or authentication tokens are routed through, inspected by, or saved on our servers.</p>
-      <p><strong>3. Zero Tracking &amp; Analytics:</strong> We do not track browsing history, keystrokes, clipboard entries, or personal identity information. No third-party behavioral analytics or advertising trackers are bundled inside our software.</p>
-      <p><strong>4. Security Inquiries:</strong> If you have technical questions regarding key isolation or data handling practices, reach out directly to <span style="color:#38bdf8;">iansilas@proton.me</span>.</p>
-    </div>
-  </div>
 
   <!-- Contact Support Modal -->
   <div id="supportModal" class="modal-backdrop" onclick="closeOnBackdrop(event, 'supportModal')">
@@ -891,7 +879,17 @@
 
   <script>
     // =========================================================================
-    // 1. LIVE SEARCH & FILTER
+    // 1. 动态生成版权年份
+    // =========================================================================
+    function initDynamicYear() {
+      const yearEl = document.getElementById('currentYear');
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
+    }
+
+    // =========================================================================
+    // 2. 实时搜索过滤
     // =========================================================================
     const searchInput = document.getElementById('toolSearch');
     const toolItems = document.querySelectorAll('.tool-item');
@@ -927,53 +925,80 @@
     }
 
     // =========================================================================
-    // 2. DINAMIKO A PANAGALA TI REFERRAL LINK MANIPUD ITI ./dataforseo/base.json
+    // 3. 动态从 ./dataforseo/base.json 注入推广返利链接与社区外链
     // =========================================================================
     let cachedAffiliateUrl = '';
 
-    async function initDataForSeoRefLinks() {
-      const BASE_JSON_URL = './dataforseo/base.json';
+    async function initDataForSeoBaseConfig() {
+      const BASE_JSON_URL = `./dataforseo/base.json?_t=${Date.now()}`;
       try {
-        const res = await fetch(BASE_JSON_URL);
-        if (!res.ok) throw new Error('Failed to fetch base.json');
+        const res = await fetch(BASE_JSON_URL, {
+          cache: 'no-cache',
+          headers: { 'Pragma': 'no-cache', 'Cache-Control': 'no-cache' }
+        });
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
         const data = await res.json();
-        
-        cachedAffiliateUrl = data.affiliate_url || '';
 
+        // 1. 读取并注入官方返利链接
+        cachedAffiliateUrl = data.affiliate_url || data.affiliate_link || '';
         if (cachedAffiliateUrl) {
-          document.querySelectorAll('.dataforseo-ref-link').forEach(link => {
+          const links = document.querySelectorAll('.dataforseo-ref-link');
+          links.forEach(link => {
             link.href = cachedAffiliateUrl;
           });
         }
+
+        // 2. 动态读取并渲染社区链接到页脚
+        if (Array.isArray(data.community_links) && data.community_links.length > 0) {
+          const footerLinks = document.querySelector('.footer-links');
+          if (footerLinks) {
+            const fragment = document.createDocumentFragment();
+            data.community_links.forEach(item => {
+              const a = document.createElement('a');
+              a.href = item.url;
+              a.textContent = item.name;
+              a.target = '_blank';
+              a.rel = 'noopener noreferrer';
+              fragment.appendChild(a);
+            });
+            const githubLink = footerLinks.querySelector('a');
+            if (githubLink && githubLink.nextSibling) {
+              footerLinks.insertBefore(fragment, githubLink.nextSibling);
+            } else {
+              footerLinks.prepend(fragment);
+            }
+          }
+        }
       } catch (err) {
-        console.warn('Could not load affiliate link from base.json:', err);
+        console.error('[SEO360] Failed to load base.json:', err);
       }
     }
 
-    // Pangsalaknib: No mapindut ti silpo bayat a di pay nalpas ti panagkarga ti JSON
+    // 防漏兜底：点击时若尚未拉取完成，实时获取并跳转
     document.addEventListener('click', (e) => {
       const target = e.target.closest('.dataforseo-ref-link');
       if (target) {
-        if (!cachedAffiliateUrl || target.getAttribute('href') === '#') {
+        const currentHref = target.getAttribute('href');
+        if (!cachedAffiliateUrl || currentHref === '#' || currentHref === '') {
           e.preventDefault();
-          fetch('./dataforseo/base.json')
+          fetch(`./dataforseo/base.json?_t=${Date.now()}`)
             .then(res => res.json())
             .then(data => {
-              const url = data.affiliate_link || data.ref_link || data.partner_link;
+              const url = data.affiliate_url || data.affiliate_link || '';
               if (url) {
                 target.href = url;
                 window.open(url, '_blank', 'noopener,noreferrer');
               }
             })
             .catch(err => {
-              console.error('Failed to open link dynamically:', err);
+              console.error('Failed to open affiliate link dynamically:', err);
             });
         }
       }
     });
 
     // =========================================================================
-    // 3. MODAL & UTILITY CONTROLS
+    // 4. 模态框与工具控制
     // =========================================================================
     function openModal(id) {
       document.getElementById(id).classList.add('active');
@@ -1003,14 +1028,14 @@
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        closeModal('privacyModal');
         closeModal('supportModal');
       }
     });
 
-    // Maiyuna a maipatungpal kalpasan ti panagkarga ti panid
+    // 页面加载完成后统一初始化
     document.addEventListener('DOMContentLoaded', () => {
-      initDataForSeoRefLinks();
+      initDynamicYear();
+      initDataForSeoBaseConfig();
     });
   </script>
 
