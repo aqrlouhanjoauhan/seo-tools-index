@@ -28,5 +28,10 @@
     "type": "number",
     "description": "Number of SERP items to crawl/return. Default is <code>10</code>, maximum is <code>100</code>.",
     "default": 10
+  },
+  "limit": {
+    "type": "number",
+    "description": "Maximum number of keyword results to return (default <code>100</code>, max 1000)",
+    "default": 100
   }
 }
