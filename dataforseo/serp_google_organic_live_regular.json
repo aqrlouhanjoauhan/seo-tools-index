@@ -1,0 +1,16 @@
+{
+  "use_params": [
+    "keyword",
+    "location_code",
+    "language_code",
+    "target",
+    "depth"
+  ],
+  "params": {
+    "device": {
+      "type": "string",
+      "description": "Search device: <code>desktop</code> or <code>mobile</code>",
+      "default": "desktop"
+    }
+  }
+}
