@@ -3,5 +3,10 @@
     "file": "serp_google_organic_live_regular.json",
     "api": "serp/google/organic/live/regular",
     "desc": "Google Organic SERP Live Regular (Check instant rankings & positions for target domain)"
+  },
+  {
+    "file": "keywords_data_google_search_volume.json",
+    "api": "keywords_data/google_ads/search_volume/live",
+    "desc": "Google Ads Search Volume Live (Monthly searches, average CPC, and competition)"
   }
 ]
