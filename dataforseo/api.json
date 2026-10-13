@@ -8,5 +8,10 @@
     "file": "keywords_data_google_search_volume.json",
     "api": "keywords_data/google_ads/search_volume/live",
     "desc": "Google Ads Search Volume Live (Monthly searches, average CPC, and competition)"
+  },
+  {
+    "file": "dataforseo_labs_google_ranked_keywords.json",
+    "api": "dataforseo_labs/google/ranked_keywords/live",
+    "desc": "Google Ranked Keywords Live (Reverse engineer any competitor domain's ranking keywords)"
   }
 ]
