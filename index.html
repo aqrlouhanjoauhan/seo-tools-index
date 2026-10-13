@@ -247,7 +247,7 @@
       pointer-events: none;
     }
 
-    /* Scrollable Tool Box */
+    /* Tools List */
     .tools-scroll-box {
       display: flex;
       flex-direction: column;
@@ -802,13 +802,14 @@
         </div>
       </div>
 
+      <!-- DataForSEO 动态返利 Banner -->
       <div class="authority-banner">
         <div class="authority-banner-text">
           <h3>Need an official DataForSEO API account?</h3>
           <p>Sign up directly with DataForSEO to receive sandbox test credits and full API access credentials.</p>
         </div>
-        <a href="https://dataforseo.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-          Visit DataForSEO.com ↗
+        <a href="https://dataforseo.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary dataforseo-ref-link" id="btn-dataforseo-cta">
+          Sign up with DataForSEO ↗
         </a>
       </div>
     </div>
@@ -842,16 +843,16 @@
   <!-- Footer -->
   <footer>
     <div class="container footer-inner">
-      <div>&copy; 2026 SEO360 &amp; Light SEO Suite. All rights reserved.</div>
+      <div>&copy; 2026 SEO360. All rights reserved.</div>
       <div class="footer-links">
-        <a href="https://github.com/aqrlouhanjoauhan/seo-tools-index" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://github.com/aqrlouhanjoauhan/seo360" target="_blank" rel="noopener noreferrer">GitHub</a>
         <button type="button" onclick="openModal('privacyModal')">Privacy Policy</button>
         <button type="button" onclick="openModal('supportModal')">Contact Support</button>
       </div>
     </div>
     <div class="container">
       <div class="footer-disclaimer">
-        Disclaimer: SEO360 and the Light SEO Suite are independent development utilities and are not affiliated, associated, authorized, endorsed by, or in any way officially connected with Google LLC or DataForSEO. Google is a trademark of Google LLC. DataForSEO is a trademark of its respective owner.
+        Disclaimer: SEO360 is an independent development utility and is not affiliated, associated, authorized, endorsed by, or in any way officially connected with Google LLC or DataForSEO. Google is a trademark of Google LLC. DataForSEO is a trademark of its respective owner.
       </div>
     </div>
   </footer>
@@ -925,7 +926,29 @@
     }
 
     // =========================================================================
-    // 2. MODAL & UTILITY CONTROLS
+    // 2. 动态从 ./dataforseo/base.json 获取推广返利链接
+    // =========================================================================
+    async function initDataForSeoRefLinks() {
+      const BASE_JSON_URL = './dataforseo/base.json';
+      try {
+        const res = await fetch(BASE_JSON_URL);
+        if (!res.ok) return;
+        const data = await res.json();
+        
+        // 自动识别 affiliate_link、ref_link 或 partner_link 字段
+        const refUrl = data.affiliate_link || data.ref_link || data.partner_link;
+        if (refUrl) {
+          document.querySelectorAll('.dataforseo-ref-link').forEach(link => {
+            link.href = refUrl;
+          });
+        }
+      } catch (err) {
+        console.warn('Failed to load base.json for affiliate link:', err);
+      }
+    }
+
+    // =========================================================================
+    // 3. MODAL & UTILITY CONTROLS
     // =========================================================================
     function openModal(id) {
       document.getElementById(id).classList.add('active');
@@ -958,6 +981,11 @@
         closeModal('privacyModal');
         closeModal('supportModal');
       }
+    });
+
+    // 页面加载完成后统一初始化
+    document.addEventListener('DOMContentLoaded', () => {
+      initDataForSeoRefLinks();
     });
   </script>
 
