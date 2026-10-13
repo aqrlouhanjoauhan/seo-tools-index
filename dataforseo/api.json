@@ -1,10 +1,7 @@
 [
   {
-    "name": "Google Organic Live Advanced",
+    "api": "serp/google/organic/live/advanced",
     "file": "serp_google_organic_live_advanced.json",
-    "desc": [
-      "实时获取 Google 有机搜索排名数据",
-      "包含 SERP 各类高级元素（知识图谱、精选摘要、People Also Ask 等）"
-    ]
+    "desc": "Real-time Google SERP rankings with advanced features (Featured Snippets, PAA, Knowledge Graph)."
   }
 ]
