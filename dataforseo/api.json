@@ -1,7 +1,7 @@
 [
   {
-    "api": "serp/google/organic/live/advanced",
-    "file": "serp_google_organic_live_advanced.json",
-    "desc": "Real-time Google SERP rankings with advanced features (Featured Snippets, PAA, Knowledge Graph)."
+    "file": "serp_google_organic_live_regular.json",
+    "api": "serp/google/organic/live/regular",
+    "desc": "Google Organic SERP Live Regular (Check instant rankings & positions for target domain)"
   }
 ]
