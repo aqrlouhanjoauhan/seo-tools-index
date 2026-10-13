@@ -228,9 +228,11 @@
     </main>
 
     <footer>
-      &copy; 2026 SEO360. All rights reserved.
+      &copy; <span id="privacyYear"></span> SEO360. All rights reserved.
     </footer>
   </div>
+
+  <script>document.getElementById('privacyYear').textContent = new Date().getFullYear();</script>
 
 </body>
 </html>
