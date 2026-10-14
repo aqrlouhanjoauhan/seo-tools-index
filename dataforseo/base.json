@@ -2,6 +2,14 @@
   "affiliate_url": "https://try.dataforseo.com/xvxl35eyit3h",
   "community_links": [
     {
+       "name":"DataForSeo AI Chat",
+       "url":"https://chat.dataforseo.com/"
+    },
+    {
+      "name":"DataForSeo Youtube",
+      "url":"https://www.youtube.com/@DataForSEO"
+    },
+    {
       "name": "r/TechSEO",
       "url": "https://www.reddit.com/r/TechSEO/"
     },
@@ -12,10 +20,6 @@
     {
       "name": "r/SideProject",
       "url": "https://www.reddit.com/r/SideProject/"
-    },
-    {
-      "name":"DataForSeo Youtube",
-      "url":"https://www.youtube.com/@DataForSEO"
     }
   ]
 }
