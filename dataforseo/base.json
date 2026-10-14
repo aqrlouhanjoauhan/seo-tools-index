@@ -2,24 +2,24 @@
   "affiliate_url": "https://try.dataforseo.com/xvxl35eyit3h",
   "community_links": [
     {
-       "name":"Ask DataForSEO AI",
-       "url":"https://chat.dataforseo.com/"
+      "name": "Ask DataForSEO AI",
+      "url": "https://chat.dataforseo.com/"
     },
     {
-      "name":"DataForSEO YouTube",
-      "url":"https://www.youtube.com/@DataForSEO"
+      "name": "DataForSEO YouTube",
+      "url": "https://www.youtube.com/@DataForSEO"
     },
     {
       "name": "r/TechSEO",
       "url": "https://www.reddit.com/r/TechSEO/"
     },
     {
-      "name": "r/bigseo",
-      "url": "https://www.reddit.com/r/bigseo/"
+      "name": "r/webscraping",
+      "url": "https://www.reddit.com/r/webscraping/"
     },
     {
-      "name": "r/SideProject",
-      "url": "https://www.reddit.com/r/SideProject/"
+      "name": "r/bigseo",
+      "url": "https://www.reddit.com/r/bigseo/"
     }
   ]
 }
