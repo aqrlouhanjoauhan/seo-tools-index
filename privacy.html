@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy — SEO360</title>
-  <meta name="description" content="Privacy Policy for SEO360 Chrome Extension and Web Tools. Learn how we protect user autonomy with our zero-tracking, Bring Your Own Key (BYOK) architecture.">
+  <title>Privacy Policy — SEO Tools &amp; Browser Extensions</title>
+  <meta name="description" content="Privacy Policy for our SEO Browser Extensions and Web Tools. Learn how we protect user autonomy with our zero-tracking, Bring Your Own Key (BYOK) architecture.">
   <link rel="canonical" href="https://seo360.pages.dev/privacy.html">
   
   <!-- Native SVG Favicon -->
@@ -174,7 +174,7 @@
             <path d="M15.5 15.5L20 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </div>
-        <span>SEO360</span>
+        <span>SEO Tools Suite</span>
       </a>
       <a href="/" class="back-link">← Back to Hub</a>
     </header>
@@ -184,51 +184,52 @@
       <div class="last-updated">Last Updated: October 2026</div>
 
       <div class="section-card">
-        <h2><span class="num">01.</span> Overview & Core Philosophy</h2>
-        <p>SEO360 ("we", "our", or "the extension") provides visual developer tooling and API inspection utilities for DataForSEO. Our architecture is built upon a fundamental privacy principle: <strong>Bring Your Own Key (BYOK) and Zero Centralized Data Collection</strong>.</p>
-        <p>We do not operate backend user databases, user tracking systems, or intermediate proxy servers. All software operations are executed locally within your client browser environment.</p>
+        <h2><span class="num">01.</span> Overview &amp; Core Philosophy</h2>
+        <p>Our suite of SEO browser extensions and web utilities (collectively referred to as "the Tools", "the Extensions", or "we") provides visual search engine data exploration, competitive keyword intelligence, domain comparison, and API inspection utilities. Our architecture is built upon a fundamental privacy principle: <strong>Bring Your Own Key (BYOK) and Zero Centralized Data Collection</strong>.</p>
+        <p>We do not operate backend user databases, user tracking systems, or intermediate proxy servers. All software operations and analytical processes are executed locally within your client browser environment.</p>
       </div>
 
       <div class="section-card">
         <h2><span class="num">02.</span> Information We Do NOT Collect</h2>
-        <p>In accordance with the Google Chrome Web Store Developer Program Policies, we explicitly declare that SEO360 does not collect, transmit, or store any of the following:</p>
+        <p>In accordance with the Google Chrome Web Store Developer Program Policies, we explicitly declare that our extensions and tools do not collect, transmit, or store any of the following:</p>
         <ul>
           <li><strong>Personally Identifiable Information (PII)</strong>: Names, email addresses, physical locations, phone numbers, or age.</li>
-          <li><strong>Authentication Credentials on Centralized Servers</strong>: We never receive or store your DataForSEO API keys or passwords on any external server.</li>
-          <li><strong>Browsing Activity & Web Content</strong>: We do not monitor, intercept, read, or track your browsing history, visited web pages, or clipboard contents.</li>
-          <li><strong>Analytics & Behavioral Tracking</strong>: No third-party analytics trackers, telemetry trackers, or advertising SDKs are packaged within this software.</li>
+          <li><strong>Authentication Credentials on Centralized Servers</strong>: We never receive, relay, or store your DataForSEO API keys or passwords on any external server.</li>
+          <li><strong>Browsing Activity &amp; Web Content</strong>: We do not monitor, intercept, read, or track your browsing history, visited web pages, or clipboard contents.</li>
+          <li><strong>Analytics &amp; Behavioral Tracking</strong>: No third-party analytics trackers, telemetry scripts, or advertising SDKs are packaged within our software.</li>
         </ul>
       </div>
 
       <div class="section-card">
-        <h2><span class="num">03.</span> Browser Permissions & Technical Justifications</h2>
-        <p>SEO360 requests minimal browser permissions strictly necessary for its advertised functionality:</p>
+        <h2><span class="num">03.</span> Browser Permissions &amp; Technical Justifications</h2>
+        <p>Our extensions request minimal browser permissions strictly necessary for their advertised functionality:</p>
         <ul>
           <li><code>storage</code>: Used solely to persist your user-configured DataForSEO API Login and Password locally in your browser's private sandbox (via <code>chrome.storage.local</code>). This data never leaves your device.</li>
+          <li><code>activeTab</code>: Used exclusively when you explicitly click the extension action icon. It reads only the hostname and URL of the active webpage to automatically pre-fill the search target input field for analysis, avoiding tedious manual copying and pasting. It does not access page content, forms, or browsing history.</li>
           <li><strong>Host Permissions (<code>api.dataforseo.com</code>)</strong>: Used exclusively to send direct client-side HTTPS queries directly to official DataForSEO endpoints using your supplied credentials.</li>
-          <li><strong>Host Permissions (<code>seo360.pages.dev</code>)</strong>: Used solely to fetch static JSON API parameter schemas and configuration updates. No user data is sent during these requests.</li>
+          <li><strong>Host Permissions (<code>seo360.pages.dev</code>)</strong>: Used solely to fetch static JSON API parameter schemas, documentation guides, and configuration updates. No user data is sent during these requests.</li>
         </ul>
       </div>
 
       <div class="section-card">
-        <h2><span class="num">04.</span> Network Communications & Data Transmission</h2>
-        <p>All API queries triggered within the extension communicate directly between your browser client and the official DataForSEO API gateway (<code>https://api.dataforseo.com/v3/</code>) over secure TLS/HTTPS connections. Your requests, queries, and analytical outputs are neither routed through nor accessible to SEO360 developers.</p>
+        <h2><span class="num">04.</span> Network Communications &amp; Data Transmission</h2>
+        <p>All API queries triggered within the extensions communicate directly between your browser client and the official DataForSEO API gateway (<code>https://api.dataforseo.com/v3/</code>) over secure TLS/HTTPS connections. Your requests, target queries, and analytical outputs are neither routed through nor accessible to our developers.</p>
       </div>
 
       <div class="section-card">
-        <h2><span class="num">05.</span> Data Sharing & Third Parties</h2>
-        <p>We do not sell, rent, license, trade, or transfer any user data to third parties. We do not partner with data brokers, ad networks, or data intelligence aggregators.</p>
+        <h2><span class="num">05.</span> Data Sharing &amp; Third Parties</h2>
+        <p>We do not sell, rent, license, trade, or transfer any user data to third parties. We do not partner with data brokers, advertising networks, or data intelligence aggregators.</p>
       </div>
 
       <div class="section-card">
-        <h2><span class="num">06.</span> Contact & Inquiries</h2>
+        <h2><span class="num">06.</span> Contact &amp; Inquiries</h2>
         <p>If you have any questions regarding this Privacy Policy or wish to review the open-source client codebase, please contact the developer directly:</p>
         <p>Email: <a href="mailto:iansilas@proton.me" style="color:var(--accent-blue); text-decoration:none;">iansilas@proton.me</a></p>
       </div>
     </main>
 
     <footer>
-      &copy; <span id="privacyYear"></span> SEO360. All rights reserved.
+      &copy; <span id="privacyYear"></span> SEO Tools Suite. All rights reserved.
     </footer>
   </div>
 
